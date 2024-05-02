@@ -11,6 +11,10 @@
 		B3B60FA22BE3DFC80048E8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FA12BE3DFC80048E8BC /* ContentView.swift */; };
 		B3B60FA42BE3DFC90048E8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B60FA32BE3DFC90048E8BC /* Assets.xcassets */; };
 		B3B60FA72BE3DFC90048E8BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B60FA62BE3DFC90048E8BC /* Preview Assets.xcassets */; };
+		B3B60FB12BE3F6000048E8BC /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB02BE3F6000048E8BC /* LogInView.swift */; };
+		B3B60FB32BE3F60C0048E8BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB22BE3F60C0048E8BC /* ProfileView.swift */; };
+		B3B60FB52BE3F6E50048E8BC /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB42BE3F6E50048E8BC /* Authentication.swift */; };
+		B3B60FB72BE3F6FB0048E8BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB62BE3F6FB0048E8BC /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		B3B60FA12BE3DFC80048E8BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B3B60FA32BE3DFC90048E8BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3B60FA62BE3DFC90048E8BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B3B60FB02BE3F6000048E8BC /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		B3B60FB22BE3F60C0048E8BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B3B60FB42BE3F6E50048E8BC /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		B3B60FB62BE3F6FB0048E8BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,9 @@
 		B3B60F9E2BE3DFC80048E8BC /* Course Cyclopedia */ = {
 			isa = PBXGroup;
 			children = (
+				B3B60FAF2BE3F5E90048E8BC /* ViewModel */,
+				B3B60FAE2BE3F5DF0048E8BC /* View */,
+				B3B60FAD2BE3F5D30048E8BC /* Model */,
 				B3B60F9F2BE3DFC80048E8BC /* Course_CyclopediaApp.swift */,
 				B3B60FA12BE3DFC80048E8BC /* ContentView.swift */,
 				B3B60FA32BE3DFC90048E8BC /* Assets.xcassets */,
@@ -65,6 +76,31 @@
 				B3B60FA62BE3DFC90048E8BC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B3B60FAD2BE3F5D30048E8BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3B60FB62BE3F6FB0048E8BC /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B3B60FAE2BE3F5DF0048E8BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B3B60FB02BE3F6000048E8BC /* LogInView.swift */,
+				B3B60FB22BE3F60C0048E8BC /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B3B60FAF2BE3F5E90048E8BC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B3B60FB42BE3F6E50048E8BC /* Authentication.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B60FB32BE3F60C0048E8BC /* ProfileView.swift in Sources */,
+				B3B60FB12BE3F6000048E8BC /* LogInView.swift in Sources */,
+				B3B60FB72BE3F6FB0048E8BC /* User.swift in Sources */,
 				B3B60FA22BE3DFC80048E8BC /* ContentView.swift in Sources */,
+				B3B60FB52BE3F6E50048E8BC /* Authentication.swift in Sources */,
 				B3B60FA02BE3DFC80048E8BC /* Course_CyclopediaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
