@@ -9,7 +9,8 @@ import SwiftUI
 
 struct WishlistView: View {
     
-    let viewModel = AllSubjectsViewModel()
+//    let viewModel = AllSubjectsViewModel()
+    @ObservedObject var viewModel = AllSubjectsViewModel()
         
     var body: some View {
                 

@@ -15,6 +15,7 @@ struct Subject: Hashable{
     let campus: String
     let credit: Int
     let programType: String
-    let prerequisit: String
+    let prerequisite: String
     let corequisite: String
+    var isInWishlist: Bool
 }

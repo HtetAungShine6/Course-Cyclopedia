@@ -7,8 +7,8 @@
 
 import Foundation
 
-class AllSubjectsViewModel {
-    private(set) var subjects: [Subject]
+class AllSubjectsViewModel: ObservableObject {
+    @Published var subjects: [Subject]
     
     init() {
         let defaultSubjects = DefaultDataProvider.getDefaultSubjects()
