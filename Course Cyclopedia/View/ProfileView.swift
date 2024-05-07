@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import GoogleSignIn
 
 struct ProfileView: View {
+    
+    @State private var isSignedOut = false
+    
     var body: some View {
         NavigationStack{
             VStack{
@@ -107,6 +112,7 @@ extension ProfileView{
     private var logoutView: some View{
         Button{
             // action will be here
+            isSignedOut.toggle()
         } label: {
             Text("Logout")
                 .foregroundColor(.white)
@@ -116,6 +122,19 @@ extension ProfileView{
                 .cornerRadius(40)
                 .shadow(color: Color.shadowColor, radius: 5, x: 0,y: 8)
                 .padding(.vertical, 15)
+        }
+        .alert("Are you sure you want to sign out?", isPresented: $isSignedOut){
+            Button("OK"){
+                do{
+                    try FirebaseManager.shared.auth.signOut()
+                    UserDefaults.standard.setValue(false, forKey: "signIn")
+                } catch let signOutError as NSError{
+                    print("Error signing out: \(signOutError)")
+                }
+            }
+            Button("Cancel", role: .cancel){
+                
+            }
         }
     }
     

@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct Course_CyclopediaApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @AppStorage("signIn") var isSingIn = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            if !isSingIn{
+//                LogInView()
+                TestView()
+            } else {
+                ProfileView()
+            }
         }
     }
 }

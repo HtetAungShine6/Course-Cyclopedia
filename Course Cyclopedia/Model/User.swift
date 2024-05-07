@@ -6,7 +6,11 @@
 //
 
 import Foundation
+//import FirebaseFirestoreSwift
 
+// Don't need it Right Now!!!
 struct User {
+    
+//    @DocumentID var id: String?
     
 }
