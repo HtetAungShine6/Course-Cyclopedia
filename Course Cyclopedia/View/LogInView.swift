@@ -88,13 +88,13 @@ struct LogInView: View {
             Button {
                 signInWithGoogle()
             } label: {
-                Image("ContinueWithGoogle")
+                Image("continueWithGoogle")
             }
         } else {
             Button {
                 signInWithGoogle()
             } label: {
-                Image("SignInWithGoogle")
+                Image("signInWithGoogle")
             }
         }
     }
