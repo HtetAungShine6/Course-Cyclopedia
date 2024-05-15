@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct TestView: View {
-    @ObservedObject var vm = GoogleAuthenticationViewModel()
+    @ObservedObject var viewModel = GoogleAuthenticationViewModel()
     var body: some View {
-//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         Button{
             signInWithGoogle()
         }label: {
@@ -22,31 +22,29 @@ struct TestView: View {
                     .frame(maxWidth: 350, maxHeight: 60)
                     .padding()
                 HStack{
-//                    Image("google")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(maxWidth: 50, maxHeight: 50)
+                    //                    Image("google")
+                    //                        .resizable()
+                    //                        .scaledToFit()
+                    //                        .frame(maxWidth: 50, maxHeight: 50)
                     Text("Sign In with Google")
                         .tint(Color.black)
                         .font(.title3)
                         .fontWeight(.bold)
                 }
             }
-
+            
         }
     }
     
     private func signInWithGoogle(){
-        vm.signInWithGoogle(presenting: Application_utility.rootViewController) { error, isNewUser in
+        viewModel.signInWithGoogle(presenting: Application_utility.rootViewController) { error, isNewUser in
             DispatchQueue.main.async {
-                if let error = error {
-//                    self.errorMessage = error.localizedDescription
-                    return
-                }
+                
             }
         }
     }
 }
+
 
 #Preview {
     TestView()
