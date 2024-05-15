@@ -12,6 +12,7 @@ import GoogleSignIn
 struct ProfileView: View {
     
     @State private var isSignedOut = false
+    @ObservedObject private var viewModel = GoogleAuthenticationViewModel()
     
     var body: some View {
         NavigationStack{
@@ -111,7 +112,6 @@ extension ProfileView{
     
     private var logoutView: some View{
         Button{
-            // action will be here
             isSignedOut.toggle()
         } label: {
             Text("Logout")
@@ -125,12 +125,7 @@ extension ProfileView{
         }
         .alert("Are you sure you want to sign out?", isPresented: $isSignedOut){
             Button("OK"){
-                do{
-                    try FirebaseManager.shared.auth.signOut()
-                    UserDefaults.standard.setValue(false, forKey: "signIn")
-                } catch let signOutError as NSError{
-                    print("Error signing out: \(signOutError)")
-                }
+                viewModel.signOutWithGoogle()
             }
             Button("Cancel", role: .cancel){
                 
