@@ -17,7 +17,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                Image("logo")
+                Image("AppLogo")
                     .resizable()
                     .frame(width: 100, height: 100)
                 Text("User Name")

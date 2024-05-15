@@ -18,7 +18,11 @@ struct LogInView: View {
     @ObservedObject var authViewModel = GoogleAuthenticationViewModel()
     
     var body: some View {
-        
+        loginView
+    }
+    
+    //MARK: - Login View
+    private var loginView: some View{
         VStack {
             Image("AppLogo")
                 .resizable()
@@ -88,13 +92,13 @@ struct LogInView: View {
             Button {
                 signInWithGoogle()
             } label: {
-                Image("ContinueWithGoogle")
+                Image("continueWithGoogle")
             }
         } else {
             Button {
                 signInWithGoogle()
             } label: {
-                Image("SignInWithGoogle")
+                Image("signInWithGoogle")
             }
         }
     }
