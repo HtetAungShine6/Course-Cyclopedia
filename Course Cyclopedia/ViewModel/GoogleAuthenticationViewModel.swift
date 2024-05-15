@@ -11,14 +11,20 @@ import GoogleSignIn
 import Firebase
 import FirebaseAuth
 
-//MARK: - Goolge Sign In Function
 class GoogleAuthenticationViewModel: ObservableObject {
- 
+    
     @Published var errorMessage = ""
     
+    //MARK: - Goolge Sign In Function
     func signInWithGoogle(presenting: UIViewController, completion: @escaping (Error?, Bool) -> Void) {
         
-        guard let clientID = FirebaseManager.shared.firebaseApp?.options.clientID else { return }
+        guard let clientID = FirebaseManager.shared.firebaseApp?.options.clientID else {
+            self.errorMessage = "Missing Firebase Client ID"
+            DispatchQueue.main.async {
+                completion(NSError(domain: "GoogleAuthError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing Firebase client ID."]), false)
+            }
+            return
+        }
         
         let config = GIDConfiguration(clientID: clientID)
         
@@ -42,13 +48,7 @@ class GoogleAuthenticationViewModel: ObservableObject {
             let accessToken = user.accessToken
             let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
             
-            guard let currentUserToken = FirebaseManager.shared.auth.apnsToken else {
-                print("OH SHIT")
-                return
-            }
-            
-//            FirebaseManager.shared.auth.tenantID
-            
+            //MARK: - Trigerring SignIn Function from Firebase Auth
             FirebaseManager.shared.auth.signIn(with: credential) { authResult, error in
                 if let error = error {
                     self.errorMessage = "Failed to Sign In with credentials: \(error)"
@@ -59,12 +59,14 @@ class GoogleAuthenticationViewModel: ObservableObject {
                 }
                 
                 guard let authResult = authResult else {
+                    self.errorMessage = "Authentication result is nil: \(String(describing: error))"
                     DispatchQueue.main.async {
                         completion(NSError(domain: "FirebaseAuthError", code: -1, userInfo: nil), false)
                     }
                     return
                 }
                 
+                //MARK: - Handling new user state during sign in
                 let isNewUser = authResult.additionalUserInfo?.isNewUser ?? false
                 DispatchQueue.main.async {
                     completion(nil, isNewUser)
@@ -77,12 +79,17 @@ class GoogleAuthenticationViewModel: ObservableObject {
                     print("There's a new user!!!")
                     AppStateHandler.userSignOutState()
                 }
-                print("ID Token: \(idToken)")
-//                print("Current Tokem: \(currentUserToken)")
             }
         }
     }
     
+    //MARK: - User Existance Check
+    func checkIfUserExists(completion: @escaping (Bool) -> Void) {
+        let user = FirebaseManager.shared.auth.currentUser
+        completion(user != nil)
+    }
+    
+    //MARK: - Goolge Sign Out Function
     func signOutWithGoogle(){
         do {
             try FirebaseManager.shared.auth.signOut()

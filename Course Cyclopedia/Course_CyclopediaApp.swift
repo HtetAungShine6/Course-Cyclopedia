@@ -15,10 +15,8 @@ struct Course_CyclopediaApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            ContentView()
             if !isSingIn{
-//                LogInView()
-                TestView()
+                LogInView()
             } else {
                 ProfileView()
             }

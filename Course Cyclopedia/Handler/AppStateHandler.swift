@@ -17,4 +17,7 @@ struct AppStateHandler {
         UserDefaults.standard.setValue(false, forKey: "signIn")
     }
     
+    static func saveAccountAvailability(userId: String){
+        UserDefaults.standard.set(userId, forKey: "ExistedAccount")
+    }
 }
