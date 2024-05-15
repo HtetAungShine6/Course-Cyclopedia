@@ -20,7 +20,6 @@
 		B32BE3452BEA7D55000A1102 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B32BE3442BEA7D55000A1102 /* GoogleService-Info.plist */; };
 		B32BE3492BEA7DE3000A1102 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BE3482BEA7DE3000A1102 /* FirebaseManager.swift */; };
 		B32BE34B2BEA86F6000A1102 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B32BE34A2BEA86F6000A1102 /* FirebaseFirestoreSwift */; };
-		B32BE34D2BEA8D06000A1102 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BE34C2BEA8D06000A1102 /* TestView.swift */; };
 		B3779BCE2BF26F7800587C2C /* AppStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3779BCD2BF26F7800587C2C /* AppStateHandler.swift */; };
 		B3B60FA02BE3DFC80048E8BC /* Course_CyclopediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60F9F2BE3DFC80048E8BC /* Course_CyclopediaApp.swift */; };
 		B3B60FA22BE3DFC80048E8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FA12BE3DFC80048E8BC /* ContentView.swift */; };
@@ -44,7 +43,6 @@
 		B32BE3442BEA7D55000A1102 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B32BE3462BEA7D70000A1102 /* Course-Cyclopedia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Course-Cyclopedia-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B32BE3482BEA7DE3000A1102 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		B32BE34C2BEA8D06000A1102 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		B3779BCD2BF26F7800587C2C /* AppStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateHandler.swift; sourceTree = "<group>"; };
 		B3B60F9C2BE3DFC80048E8BC /* Course Cyclopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Course Cyclopedia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B60F9F2BE3DFC80048E8BC /* Course_CyclopediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course_CyclopediaApp.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 				B3B60FB22BE3F60C0048E8BC /* ProfileView.swift */,
 				BCBDF25D2BE92249002FBFEE /* WishlistView.swift */,
 				BCBDF2672BE93056002FBFEE /* SubjectDetailView.swift */,
-				B32BE34C2BEA8D06000A1102 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,7 +294,6 @@
 				BCBDF2662BE925B1002FBFEE /* DefaultDataProvider.swift in Sources */,
 				B3B60FB32BE3F60C0048E8BC /* ProfileView.swift in Sources */,
 				B3B60FB12BE3F6000048E8BC /* LogInView.swift in Sources */,
-				B32BE34D2BEA8D06000A1102 /* TestView.swift in Sources */,
 				BCBA8F1A2BE91C6F002336FF /* Color.swift in Sources */,
 				B3B60FB72BE3F6FB0048E8BC /* User.swift in Sources */,
 				B3779BCE2BF26F7800587C2C /* AppStateHandler.swift in Sources */,
