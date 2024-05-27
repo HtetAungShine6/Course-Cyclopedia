@@ -18,9 +18,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     //MARK: - Handle the URL that application receives at the end of the authentication process
-    func application(_ app: UIApplication,
-                         open url: URL,
-                         options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-          return GIDSignIn.sharedInstance.handle(url)
-        }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
+    }
 }

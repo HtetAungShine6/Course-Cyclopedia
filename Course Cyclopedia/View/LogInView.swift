@@ -19,6 +19,12 @@ struct LogInView: View {
     
     var body: some View {
         loginView
+        // This is just printing out the token just to make sure eveything's OK T_T
+            .onReceive(authViewModel.$token){ token in
+                if let token = token {
+                    print("Received token: \(token)")
+                }
+            }
     }
     
     //MARK: - Login View

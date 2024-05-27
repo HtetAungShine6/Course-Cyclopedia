@@ -14,6 +14,8 @@ import FirebaseAuth
 class GoogleAuthenticationViewModel: ObservableObject {
     
     @Published var errorMessage = ""
+    @Published var isAuthenticated: Bool = false
+    @Published var token: String? = nil
     
     //MARK: - Goolge Sign In Function
     func signInWithGoogle(presenting: UIViewController, completion: @escaping (Error?, Bool) -> Void) {
@@ -74,12 +76,47 @@ class GoogleAuthenticationViewModel: ObservableObject {
                 
                 if !isNewUser{
                     AppStateHandler.userSignInState()
+                    if let email = authResult.user.email {
+                        let firebaseId = authResult.user.uid
+                        self.postFirebaseIdAndEmail(email: email, firebaseId: firebaseId)
+                    }
                     print("This user already exists")
                 } else {
                     print("There's a new user!!!")
-                    AppStateHandler.userSignOutState()
+//                    AppStateHandler.userSignOutState()
+                    if let email = authResult.user.email {
+                        let firebaseId = authResult.user.uid
+                        self.postFirebaseIdAndEmail(email: email, firebaseId: firebaseId)
+                    }
                 }
             }
+        }
+    }
+    
+    // MARK: - Posting to login API with email and firebase id
+    private func postFirebaseIdAndEmail(email: String, firebaseId: String) {
+        let webService = WebService()
+        webService.login(email: email, firebaseId: firebaseId) { result in
+            switch result {
+            case .success(let token):
+                print("Login successful with token: \(token)")
+                DispatchQueue.main.async {
+                    self.isAuthenticated = true
+                    TokenManager.share.saveTokens(token: token)
+                }
+            case .failure(let error):
+                print("Login failed with error: \(error)")
+                DispatchQueue.main.async {
+                    self.errorMessage = "Failed to login with WebService: \(error)"
+                }
+            }
+        }
+    }
+    
+    private func handleSignInError(message: String, error: Error?, completion: @escaping (Error?, Bool) -> Void) {
+        self.errorMessage = message
+        DispatchQueue.main.async {
+            completion(error, false)
         }
     }
     
@@ -94,6 +131,7 @@ class GoogleAuthenticationViewModel: ObservableObject {
         do {
             try FirebaseManager.shared.auth.signOut()
             AppStateHandler.userSignOutState()
+            TokenManager.share.deleteToken()
         } catch let signOutError as NSError {
             self.errorMessage = "Failed to sign out with error: \(signOutError)"
         }
