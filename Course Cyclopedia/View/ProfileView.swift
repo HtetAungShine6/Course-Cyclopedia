@@ -11,11 +11,12 @@ import GoogleSignIn
 
 struct ProfileView: View {
     
+    @State private var path = NavigationPath()
     @State private var isSignedOut = false
     @ObservedObject private var viewModel = GoogleAuthenticationViewModel()
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $path){
             VStack{
                 Image("AppLogo")
                     .resizable()
@@ -37,10 +38,22 @@ struct ProfileView: View {
                     .padding(.vertical, 15)
                 logoutView
                     .padding(.vertical, 15)
-                
                 footerView
             }
+            
+            //MARK: Handle navigation here
+            .navigationDestination(for: String.self) { value in
+                switch value{
+                case "Wishlist":
+                    WishlistView(path: $path)
+                case "Ads_testing":
+                    AdViewTest()
+                default:
+                    Text("Blank View")
+                }
+            }
         }
+        
     }
 }
 
@@ -70,9 +83,7 @@ extension ProfileView{
     }
     
     private var wishlistView: some View{
-        NavigationLink {
-            WishlistView()
-        } label: {
+        NavigationLink(value: "Wishlist") {
             Text("Wishlist")
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundStyle(Color.fontColor)
@@ -83,7 +94,6 @@ extension ProfileView{
                         .stroke(Color.fontColor)
                 }
         }
-
     }
     
     private var phoneNoView: some View{
@@ -99,15 +109,17 @@ extension ProfileView{
     }
     
     private var facultiesView: some View{
-        Text("Faculties")
-            .font(.system(size: 16, weight: .semibold))
-            .foregroundStyle(Color.fontColor)
-            .frame(maxWidth: 300, minHeight: 42)
-            .cornerRadius(15)
-            .overlay {
-                RoundedRectangle(cornerRadius: 40)
-                    .stroke(Color.fontColor)
-            }
+        NavigationLink(value: "Ads_testing") {
+            Text("Faculties")
+                .font(.system(size: 16, weight: .semibold))
+                .foregroundStyle(Color.fontColor)
+                .frame(maxWidth: 300, minHeight: 42)
+                .cornerRadius(15)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 40)
+                        .stroke(Color.fontColor)
+                }
+        }
     }
     
     private var logoutView: some View{

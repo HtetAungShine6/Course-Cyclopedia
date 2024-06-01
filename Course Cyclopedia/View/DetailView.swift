@@ -10,15 +10,24 @@ import AdmobSwiftUI
 
 struct DetailView: View {
     
+    @Binding var path: NavigationPath
+    
     @StateObject var nativeVM: NativeAdViewModel = NativeAdViewModel(
         adUnitID: "ca-app-pub-5898223875326847/6939510849",
         requestInterval: 120
     )
     
     private let adViewControllerRepresentable = AdViewControllerRepresentable()
-        private let adCoordinator = InterstitialAdCoordinator()
-        private let rewardCoordinator = RewardedAdCoordinator()
+    private let adCoordinator = InterstitialAdCoordinator()
+    private let rewardCoordinator = RewardedAdCoordinator()
     
+    var backButtonPlacement: ToolbarItemPlacement {
+        #if os(iOS)
+        ToolbarItemPlacement.navigationBarLeading
+        #else
+        ToolbarItemPlacement.navigation
+        #endif
+    }
     
     @State var upvote: Bool = false
     @State var starred: Bool = false
@@ -49,8 +58,20 @@ struct DetailView: View {
                 }
                 .padding()
         }
-        
         .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: backButtonPlacement) {
+                Button {
+                    path.removeLast()
+                } label: {
+                    Image(systemName: "chevron.left.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 30)
+                        .foregroundStyle(.white)
+                }
+            }
+        }
     }
     
     private var professor_card: some View{
@@ -167,7 +188,7 @@ struct DetailView: View {
 }
 
 #Preview {
-    DetailView(subject: Subject(subjectId: "CSX2009", subjectName: "Cloud Computing", description: "Description", professor: "Thanachai", campus: "Suvarnabhumi", credit: 3, programType: "Bachelor", prerequisite: "None", corequisite: "None", isInWishlist: false))
+    DetailView(path: .constant(NavigationPath("")), subject: Subject(subjectId: "CSX2009", subjectName: "Cloud Computing", description: "Description", professor: "Thanachai", campus: "Suvarnabhumi", credit: 3, programType: "Bachelor", prerequisite: "None", corequisite: "None", isInWishlist: false))
 }
 
 
