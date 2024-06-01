@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import AdmobSwiftUI
 
 struct DetailView: View {
     
-    @State var thumbup: Bool = false
+    @StateObject var nativeVM: NativeAdViewModel = NativeAdViewModel(
+        adUnitID: "ca-app-pub-5898223875326847/6939510849",
+        requestInterval: 120
+    )
+    
+    private let adViewControllerRepresentable = AdViewControllerRepresentable()
+        private let adCoordinator = InterstitialAdCoordinator()
+        private let rewardCoordinator = RewardedAdCoordinator()
+    
+    
+    @State var upvote: Bool = false
     @State var starred: Bool = false
     @State var subject: Subject
     
@@ -17,17 +28,8 @@ struct DetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             StickyHeader(minHeight: 200) {
                 ZStack{
-                    Color(red: 35/255, green: 45/255, blue: 50/255)
-                    VStack {
-                        Text(subject.subjectId)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                        Text(subject.subjectName)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                    }
+                    Color(Color.appColor)
+                    header_view
                 }
             }
             
@@ -35,47 +37,20 @@ struct DetailView: View {
                 professor_card
             }.offset(y: -80)
             
-            VStack(alignment: .leading, spacing: 5){
-                
-                HStack(alignment: .center){
-                    Text("Professor")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                }
-                Text(subject.professor)
-                    .font(.system(size: 16))
-                    .foregroundStyle(.black.opacity(0.7))
-                
-                HStack(alignment: .center){
-                    Text("Description")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                }
-                Text(subject.description)
-                    .font(.system(size: 16))
-                    .foregroundStyle(.black.opacity(0.7))
-                
-                HStack(alignment: .center){
-                    Text("Location")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                }
-                Text(subject.campus)
-                    .font(.system(size: 16))
-                    .foregroundStyle(.black.opacity(0.7))
-                
-            }.frame(
-                minWidth: 0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading
-              )
-//                .background(.blue)
+            detail_view
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
                 .padding(.horizontal)
                 .offset(y: -40)
             
+            NativeAdView(nativeViewModel: nativeVM)
+                .frame(maxWidth: .infinity, minHeight: 300, maxHeight: 300)
+                .onAppear {
+                    nativeVM.refreshAd()
+                }
+                .padding()
         }
+        
+        .navigationBarBackButtonHidden()
     }
     
     private var professor_card: some View{
@@ -111,12 +86,13 @@ struct DetailView: View {
                         .foregroundStyle(.gray)
                     HStack(alignment: .center){
                         Button(action: {
-                            self.thumbup.toggle()
+                            self.upvote.toggle()
                         }, label: {
-                            Image(systemName: thumbup ? "hand.thumbsup.fill": "hand.thumbsup")
+                            Image(systemName: upvote ? "arrowshape.up.fill": "arrowshape.up")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 20, height: 20)
+                                .foregroundStyle(upvote ? Color.appColor : Color.gray)
                         }).foregroundStyle(.gray)
                         Text("2.6k")
                             .font(.caption)
@@ -132,7 +108,7 @@ struct DetailView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 20, height: 20)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(starred ? Color.appColor : Color.gray)
                         })
                         
                         Text("1.6k")
@@ -142,6 +118,51 @@ struct DetailView: View {
                     }.padding(.vertical, 10)
                 }
             })
+    }
+    
+    private var header_view: some View{
+        VStack {
+            Text(subject.subjectId)
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+            Text(subject.subjectName)
+                .font(.title2)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+        }
+    }
+    
+    private var detail_view: some View{
+        VStack(alignment: .leading, spacing: 5){
+            
+            HStack(alignment: .center){
+                Text("Professor")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+            }
+            Text(subject.professor)
+                .font(.system(size: 16))
+                .foregroundStyle(.black.opacity(0.7))
+            
+            HStack(alignment: .center){
+                Text("Description")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+            }
+            Text(subject.description)
+                .font(.system(size: 16))
+                .foregroundStyle(.black.opacity(0.7))
+            
+            HStack(alignment: .center){
+                Text("Location")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+            }
+            Text(subject.campus)
+                .font(.system(size: 16))
+                .foregroundStyle(.black.opacity(0.7))
+        }
     }
 }
 
