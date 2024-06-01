@@ -39,7 +39,9 @@ struct WishlistView: View {
                                 Spacer()
                                 
                                 NavigationLink {
-                                    SubjectDetailView(subject: subject)
+                                    // New view
+                                    DetailView(subject: subject)
+//                                    SubjectDetailView(subject: subject)
                                 } label: {
                                     Image(systemName: "chevron.forward.circle")
                                         .resizable()
