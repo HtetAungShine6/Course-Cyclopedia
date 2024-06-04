@@ -11,6 +11,7 @@ struct WishlistView: View {
     
 //    let viewModel = AllSubjectsViewModel()
     @ObservedObject var viewModel = AllSubjectsViewModel()
+    @Binding var path: NavigationPath
         
     var body: some View {
                 
@@ -37,10 +38,8 @@ struct WishlistView: View {
                                 }.foregroundStyle(.white)
                                 
                                 Spacer()
-                                
-                                NavigationLink {
-                                    SubjectDetailView(subject: subject)
-                                } label: {
+
+                                NavigationLink(value: subject) {
                                     Image(systemName: "chevron.forward.circle")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
@@ -54,18 +53,17 @@ struct WishlistView: View {
                         .padding(.vertical, 8)
                 }
             }
+            
+            //MARK: This is where navigation works
+            .navigationDestination(for: Subject.self) { value in
+                DetailView(path: $path, subject: value)
+            }
         }
-        
-        
-        
+
         .navigationTitle("Wishlist")
     }
 }
 
-extension WishlistView{
-    
-}
-
 #Preview {
-    WishlistView()
+    WishlistView(path: .constant(NavigationPath("")))
 }
