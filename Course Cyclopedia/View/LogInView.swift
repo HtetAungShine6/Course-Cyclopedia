@@ -16,6 +16,7 @@ struct LogInView: View {
     @State private var errorMessage: String? = nil
     @State private var isNewUser = false
     @ObservedObject var authViewModel = GoogleAuthenticationViewModel()
+//    @ObservedObject var tokenManager = TokenManager.share
     
     var body: some View {
         loginView
@@ -104,7 +105,7 @@ struct LogInView: View {
             Button {
                 signInWithGoogle()
             } label: {
-                Image("signInWithGoogle")
+                Image("testGoogle")
             }
         }
     }
@@ -129,7 +130,7 @@ struct LogInView: View {
         }
     }
 }
-
-#Preview {
-    LogInView()
-}
+//
+//#Preview {
+//    LogInView()
+//}

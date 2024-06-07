@@ -9,14 +9,6 @@ import Foundation
 
 struct AppStateHandler {
     
-    static func userSignInState() {
-        UserDefaults.standard.set(true, forKey: "signIn")
-    }
-    
-    static func userSignOutState() {
-        UserDefaults.standard.setValue(false, forKey: "signIn")
-    }
-    
     static func saveAccountAvailability(userId: String){
         UserDefaults.standard.set(userId, forKey: "ExistedAccount")
     }

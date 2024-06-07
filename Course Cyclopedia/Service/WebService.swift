@@ -75,8 +75,14 @@ class WebService {
                 
                 if let token = loginResponse.token {
                     completion(.success(token))
+                    print("Status : \(httpResponse.statusCode)")
+                } else if httpResponse.statusCode == 401 {
+                    completion(.failure(AuthenticationError.invalidCredentials))
+                    TokenManager.share.isTokenValid = false
+                    print("Authorization Error!!!")
                 } else {
                     completion(.failure(.invalidCredentials))
+                    TokenManager.share.isTokenValid = false
                 }
             } catch {
                 print("Decoding error: \(error.localizedDescription)")

@@ -14,6 +14,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     //MARK: - Initializing code for Firebase (App Configuration)
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+//        NetworkMonitor.shared.monitorNetwork()
+//        TokenManager.share.deleteToken()
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true
