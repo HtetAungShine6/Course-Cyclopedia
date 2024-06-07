@@ -61,8 +61,10 @@ extension APIManager {
                 do {
                     let decodeData = try JSONDecoder().decode(ModelType.self, from: responseData)
                     completion(.success(decodeData))
+                    print("Successsfull fetched data with valid token.")
                 } catch {
                     completion(.failure(error))
+                    print("Token Expired.")
                 }
             }
         }

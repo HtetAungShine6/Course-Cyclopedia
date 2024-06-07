@@ -21,6 +21,7 @@
 		B32BE3492BEA7DE3000A1102 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BE3482BEA7DE3000A1102 /* FirebaseManager.swift */; };
 		B32BE34B2BEA86F6000A1102 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B32BE34A2BEA86F6000A1102 /* FirebaseFirestoreSwift */; };
 		B3779BCE2BF26F7800587C2C /* AppStateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3779BCD2BF26F7800587C2C /* AppStateHandler.swift */; };
+		B384D3112C0B73CF00C0538C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B384D3102C0B73CF00C0538C /* NetworkMonitor.swift */; };
 		B3B60FA02BE3DFC80048E8BC /* Course_CyclopediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60F9F2BE3DFC80048E8BC /* Course_CyclopediaApp.swift */; };
 		B3B60FA22BE3DFC80048E8BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FA12BE3DFC80048E8BC /* ContentView.swift */; };
 		B3B60FA42BE3DFC90048E8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B60FA32BE3DFC90048E8BC /* Assets.xcassets */; };
@@ -29,6 +30,14 @@
 		B3B60FB32BE3F60C0048E8BC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB22BE3F60C0048E8BC /* ProfileView.swift */; };
 		B3B60FB52BE3F6E50048E8BC /* GoogleAuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB42BE3F6E50048E8BC /* GoogleAuthenticationViewModel.swift */; };
 		B3B60FB72BE3F6FB0048E8BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B60FB62BE3F6FB0048E8BC /* User.swift */; };
+		B3C2F1812C0E11E3002E06D7 /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C2F1802C0E11E3002E06D7 /* JosefinSans-Bold.ttf */; };
+		B3C2F1832C0E1203002E06D7 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C2F1822C0E1203002E06D7 /* JosefinSans-Regular.ttf */; };
+		B3C2F1852C0E1211002E06D7 /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C2F1842C0E1211002E06D7 /* JosefinSans-SemiBold.ttf */; };
+		B3C2F1872C0E121A002E06D7 /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C2F1862C0E121A002E06D7 /* JosefinSans-Light.ttf */; };
+		B3C2F1892C0E1234002E06D7 /* LibreCaslonText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C2F1882C0E1234002E06D7 /* LibreCaslonText-Bold.ttf */; };
+		B3C2F18B2C0E123A002E06D7 /* LibreCaslonText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3C2F18A2C0E123A002E06D7 /* LibreCaslonText-Regular.ttf */; };
+		B3D116352C061B5A00553B76 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D116342C061B5A00553B76 /* Users.swift */; };
+		B3D116372C061CD800553B76 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D116362C061CD800553B76 /* UsersViewModel.swift */; };
 		B3F64F8B2C04CBC80039FBEB /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F64F8A2C04CBC80039FBEB /* WebService.swift */; };
 		B3F64F8D2C04CFF80039FBEB /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F64F8C2C04CFF80039FBEB /* UserAccount.swift */; };
 		B3F64F912C04F84E0039FBEB /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F64F902C04F84E0039FBEB /* TokenManager.swift */; };
@@ -54,6 +63,7 @@
 		B32BE3462BEA7D70000A1102 /* Course-Cyclopedia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Course-Cyclopedia-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B32BE3482BEA7DE3000A1102 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		B3779BCD2BF26F7800587C2C /* AppStateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateHandler.swift; sourceTree = "<group>"; };
+		B384D3102C0B73CF00C0538C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		B3B60F9C2BE3DFC80048E8BC /* Course Cyclopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Course Cyclopedia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B60F9F2BE3DFC80048E8BC /* Course_CyclopediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course_CyclopediaApp.swift; sourceTree = "<group>"; };
 		B3B60FA12BE3DFC80048E8BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +73,14 @@
 		B3B60FB22BE3F60C0048E8BC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B3B60FB42BE3F6E50048E8BC /* GoogleAuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B3B60FB62BE3F6FB0048E8BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B3C2F1802C0E11E3002E06D7 /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
+		B3C2F1822C0E1203002E06D7 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		B3C2F1842C0E1211002E06D7 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		B3C2F1862C0E121A002E06D7 /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
+		B3C2F1882C0E1234002E06D7 /* LibreCaslonText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreCaslonText-Bold.ttf"; sourceTree = "<group>"; };
+		B3C2F18A2C0E123A002E06D7 /* LibreCaslonText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreCaslonText-Regular.ttf"; sourceTree = "<group>"; };
+		B3D116342C061B5A00553B76 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		B3D116362C061CD800553B76 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		B3F64F8A2C04CBC80039FBEB /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		B3F64F8C2C04CFF80039FBEB /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		B3F64F902C04F84E0039FBEB /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
@@ -101,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B32795BB2C136CF000150DEE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B3F64F8A2C04CBC80039FBEB /* WebService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B32BE32B2BEA7962000A1102 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +164,7 @@
 				B32BE3482BEA7DE3000A1102 /* FirebaseManager.swift */,
 				B3F64F902C04F84E0039FBEB /* TokenManager.swift */,
 				B3F64F982C0501760039FBEB /* APIManager.swift */,
+				B384D3102C0B73CF00C0538C /* NetworkMonitor.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -162,6 +189,9 @@
 		B3B60F9E2BE3DFC80048E8BC /* Course Cyclopedia */ = {
 			isa = PBXGroup;
 			children = (
+				B32795BB2C136CF000150DEE /* Service */,
+				B3C2F17F2C0E1094002E06D7 /* Fonts */,
+				B3D116332C061B3F00553B76 /* NetworkRoutes */,
 				B3779BCF2BF2704900587C2C /* Manager */,
 				B3779BCC2BF26F5B00587C2C /* Handler */,
 				B32BE3462BEA7D70000A1102 /* Course-Cyclopedia-Info.plist */,
@@ -217,9 +247,30 @@
 				B3B60FB42BE3F6E50048E8BC /* GoogleAuthenticationViewModel.swift */,
 				BCBDF2632BE9239A002FBFEE /* AllSubjectsViewModel.swift */,
 				BCBDF2652BE925B1002FBFEE /* DefaultDataProvider.swift */,
-				B3F64F8A2C04CBC80039FBEB /* WebService.swift */,
+				B3D116362C061CD800553B76 /* UsersViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B3C2F17F2C0E1094002E06D7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B3C2F18A2C0E123A002E06D7 /* LibreCaslonText-Regular.ttf */,
+				B3C2F1882C0E1234002E06D7 /* LibreCaslonText-Bold.ttf */,
+				B3C2F1802C0E11E3002E06D7 /* JosefinSans-Bold.ttf */,
+				B3C2F1822C0E1203002E06D7 /* JosefinSans-Regular.ttf */,
+				B3C2F1842C0E1211002E06D7 /* JosefinSans-SemiBold.ttf */,
+				B3C2F1862C0E121A002E06D7 /* JosefinSans-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B3D116332C061B3F00553B76 /* NetworkRoutes */ = {
+			isa = PBXGroup;
+			children = (
+				B3D116342C061B5A00553B76 /* Users.swift */,
+			);
+			path = NetworkRoutes;
 			sourceTree = "<group>";
 		};
 		BCBA8F182BE91C64002336FF /* Extensions */ = {
@@ -312,8 +363,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3B60FA72BE3DFC90048E8BC /* Preview Assets.xcassets in Resources */,
+				B3C2F1852C0E1211002E06D7 /* JosefinSans-SemiBold.ttf in Resources */,
+				B3C2F1812C0E11E3002E06D7 /* JosefinSans-Bold.ttf in Resources */,
 				B3B60FA42BE3DFC90048E8BC /* Assets.xcassets in Resources */,
+				B3C2F1832C0E1203002E06D7 /* JosefinSans-Regular.ttf in Resources */,
+				B3C2F1892C0E1234002E06D7 /* LibreCaslonText-Bold.ttf in Resources */,
 				B32BE3452BEA7D55000A1102 /* GoogleService-Info.plist in Resources */,
+				B3C2F18B2C0E123A002E06D7 /* LibreCaslonText-Regular.ttf in Resources */,
+				B3C2F1872C0E121A002E06D7 /* JosefinSans-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,8 +394,10 @@
 				B3779BCE2BF26F7800587C2C /* AppStateHandler.swift in Sources */,
 				BCC13DB02C0B0EA100C6DBC7 /* DetailView.swift in Sources */,
 				B3B60FA22BE3DFC80048E8BC /* ContentView.swift in Sources */,
+				B3D116372C061CD800553B76 /* UsersViewModel.swift in Sources */,
 				B3B60FB52BE3F6E50048E8BC /* GoogleAuthenticationViewModel.swift in Sources */,
 				B3F64F992C0501760039FBEB /* APIManager.swift in Sources */,
+				B3D116352C061B5A00553B76 /* Users.swift in Sources */,
 				B32BE32D2BEA797D000A1102 /* AppDelegate.swift in Sources */,
 				B3B60FA02BE3DFC80048E8BC /* Course_CyclopediaApp.swift in Sources */,
 				BCBDF2642BE9239A002FBFEE /* AllSubjectsViewModel.swift in Sources */,
@@ -346,6 +405,7 @@
 				B32BE3492BEA7DE3000A1102 /* FirebaseManager.swift in Sources */,
 				BCBDF2622BE922C1002FBFEE /* Subject.swift in Sources */,
 				BCBDF25E2BE92249002FBFEE /* WishlistView.swift in Sources */,
+				B384D3112C0B73CF00C0538C /* NetworkMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

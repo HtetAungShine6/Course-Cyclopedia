@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var tokenManager: TokenManager
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if tokenManager.isTokenValid {
+            ProfileView()
+        } else {
+            LogInView()
         }
-        .padding()
     }
 }
 

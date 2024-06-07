@@ -14,15 +14,12 @@ struct Course_CyclopediaApp: App {
       // using `UIApplicationDelegateAdaptor`.
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @AppStorage("signIn") var isSingIn = false
+//    @AppStorage("signIn") var isSignIn = false
     
     var body: some Scene {
         WindowGroup {
-            if !isSingIn{
-                LogInView()
-            } else {
-                ProfileView()
-            }
+            ContentView()
+                .environmentObject(TokenManager.share)
         }
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
+import KeychainAccess
 
 struct ProfileView: View {
     
@@ -18,9 +19,14 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack(path: $path){
             VStack{
-                Image("AppLogo")
-                    .resizable()
-                    .frame(width: 100, height: 100)
+                Button{
+                    print(String(TokenManager.share.getToken() ?? "Cannot"))
+                    print(String(TokenManager.share.isTokenValid))
+                }label: {
+                    Image("AppLogo")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                }
                 Text("User Name")
                     .font(.largeTitle)
                     .fontWeight(.semibold)

@@ -74,16 +74,19 @@ class GoogleAuthenticationViewModel: ObservableObject {
                     completion(nil, isNewUser)
                 }
                 
+                //MARK: - Condition with Token Valid and Login successful with google auth
                 if !isNewUser{
-                    AppStateHandler.userSignInState()
                     if let email = authResult.user.email {
                         let firebaseId = authResult.user.uid
                         self.postFirebaseIdAndEmail(email: email, firebaseId: firebaseId)
+                        DispatchQueue.main.async {
+                            TokenManager.share.isTokenValid = true
+                            print(TokenManager.share.isTokenValid, "Token state")
+                        }
                     }
                     print("This user already exists")
                 } else {
                     print("There's a new user!!!")
-//                    AppStateHandler.userSignOutState()
                     if let email = authResult.user.email {
                         let firebaseId = authResult.user.uid
                         self.postFirebaseIdAndEmail(email: email, firebaseId: firebaseId)
@@ -102,6 +105,7 @@ class GoogleAuthenticationViewModel: ObservableObject {
                 print("Login successful with token: \(token)")
                 DispatchQueue.main.async {
                     self.isAuthenticated = true
+                    self.token = token
                     TokenManager.share.saveTokens(token: token)
                 }
             case .failure(let error):
@@ -113,6 +117,7 @@ class GoogleAuthenticationViewModel: ObservableObject {
         }
     }
     
+    //MARK: - Handling Sign In Error
     private func handleSignInError(message: String, error: Error?, completion: @escaping (Error?, Bool) -> Void) {
         self.errorMessage = message
         DispatchQueue.main.async {
@@ -130,8 +135,12 @@ class GoogleAuthenticationViewModel: ObservableObject {
     func signOutWithGoogle(){
         do {
             try FirebaseManager.shared.auth.signOut()
-            AppStateHandler.userSignOutState()
-            TokenManager.share.deleteToken()
+            DispatchQueue.main.async {
+                TokenManager.share.deleteToken()
+                self.isAuthenticated = false
+                TokenManager.share.isTokenValid = false
+                self.token = nil
+            }
         } catch let signOutError as NSError {
             self.errorMessage = "Failed to sign out with error: \(signOutError)"
         }
